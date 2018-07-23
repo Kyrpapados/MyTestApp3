@@ -28,7 +28,4 @@ public class TrendsApiClient {
 
         return retrofit;
     }
-
-
-
 }

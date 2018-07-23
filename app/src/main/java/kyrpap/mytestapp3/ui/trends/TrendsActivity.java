@@ -3,8 +3,8 @@ package kyrpap.mytestapp3.ui.trends;
 import android.app.Application;
 import android.content.Context;
 import android.net.ConnectivityManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -65,6 +65,11 @@ public class TrendsActivity extends AppCompatActivity implements TrendsContract.
         mTrendsAdapter = new TrendsAdapter(this, mTrendsList, this);
         mTrendsView.setAdapter(mTrendsAdapter);
 
+    }
+
+    @Override
+    public void showSettingsMessage() {
+        Toast.makeText(this, R.string.wifi_settings, Toast.LENGTH_SHORT).show();
     }
 
     @Override

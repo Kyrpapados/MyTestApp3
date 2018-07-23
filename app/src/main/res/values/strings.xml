@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyTestApp3</string>
+    <string name="name_placeholder">Name: %1$s</string>
+    <string name="description_placeholder">Description: %1$s</string>
+    <string name="owner_placeholder">Created by: %1$s</string>
+    <string name="wifi_settings">Please enable Wifi or mobile data.</string>
+
 </resources>

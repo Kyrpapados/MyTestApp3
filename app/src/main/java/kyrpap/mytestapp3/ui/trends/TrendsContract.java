@@ -9,14 +9,13 @@ public interface TrendsContract {
 
         void showTrends(List<Trends> mTrendsList);
 
+        void showSettingsMessage();
+
     }
 
     interface Presenter {
         void attachView(TrendsContract.View view);
 
-        void detachView();
-
         void getTrends();
-
     }
 }

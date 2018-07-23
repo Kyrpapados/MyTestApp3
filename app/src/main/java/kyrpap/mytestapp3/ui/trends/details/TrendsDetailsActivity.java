@@ -2,18 +2,14 @@ package kyrpap.mytestapp3.ui.trends.details;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,14 +17,14 @@ import kyrpap.mytestapp3.R;
 import kyrpap.mytestapp3.data.model.local.Trends;
 import kyrpap.mytestapp3.util.Statics;
 
-public class TrendsDetailsActivity extends AppCompatActivity {
+public class TrendsDetailsActivity extends AppCompatActivity implements TrendsDetailsContract.View{
 
     @BindView(R.id.userThumb)
     ImageView mThumbView;
     @BindView(R.id.title)
     TextView mTitleView;
     @BindView(R.id.description)
-    TextView mDescriptioView;
+    TextView mDescriptionView;
     @BindView(R.id.owner)
     TextView mOwnerView;
 
@@ -49,10 +45,6 @@ public class TrendsDetailsActivity extends AppCompatActivity {
         trend = getIntent().getExtras().getParcelable(Statics.TREND);
 
         showTrend(trend);
-
-
-
-
     }
 
     private void showTrend(Trends trend) {
@@ -61,14 +53,14 @@ public class TrendsDetailsActivity extends AppCompatActivity {
                 .load(trend.getOwner().getAvatar())
                 .into(mThumbView);
 
-        mTitleView.setText("Name: "+trend.getName());
+        mTitleView.setText(getString(R.string.name_placeholder, trend.getName()));
 
-        mOwnerView.setText("Created by: "+trend.getOwner().getLogin());
+        mOwnerView.setText(getString(R.string.owner_placeholder, trend.getOwner().getLogin()));
 
         if(trend.getDescription() != null && !trend.getDescription().equalsIgnoreCase("")) {
-            mDescriptioView.setText("Description: "+trend.getDescription());
+            mDescriptionView.setText(getString(R.string.description_placeholder, trend.getDescription()));
         }else {
-            mDescriptioView.setText("No description.");
+            mDescriptionView.setText(getString(R.string.no_description));
         }
     }
 }
